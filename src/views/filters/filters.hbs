@@ -1,0 +1,80 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+<div class="container p-4">
+    <div class="row">
+        {{!--First Filter (Sector)--}}
+        <div class="col-md-4 mx-auto p-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <form action="/filters/sectors_filtered" method="GET">
+                        <div class="form-group text-center">
+                            <h2>Filtro Sector</h2>
+                        </div>
+                        <div class="form-group text-center">
+                            Sectores :
+                            <select name="sector_trabajo" class="form-control" required>
+                                {{#each sector}}
+                                <option>{{sector_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-outline-success btn-block">Find Sector</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 mx-auto p-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <form action="/filters/workers_filtered" method="GET">
+                        <div class="form-group text-center">
+                            <h2>Filtro Trabajador</h2>
+                        </div>
+                        <div class="form-group text-center">
+                            Trabajadores :
+                            <select name="rut_trabajador" class="form-control" required>
+                                {{#each worker}}
+                                <option value="{{worker_rut}}">{{worker_name}} {{worker_surname}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-outline-success btn-block">Find Workers</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mx-auto p-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <form action="/filters/date_filtered" method="GET">
+                        <div class="form-group text-center">
+                            <h2>Filtro Fecha</h2>
+                        </div>
+                        <div class="form-group text-center">
+                            Fecha Trabajada :
+                            <input type="date" id="date_worked" class="form-control" required>
+                            <input type="hidden" name="mes" id="month"><input type="hidden" name="ano" id="year">
+                        </div>
+                        <div class="form-group">
+                            <button id="button_post" class="btn btn-outline-success btn-block">Find Workers</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    
+
+    </div>
+</div>
+</div>
+<script>
+    let button_post = document.getElementById('button_post'); button_post.addEventListener('click', () => { var input = document.querySelector('#date_worked').value; var d = new Date(input); if (!!d.valueOf()) { year = d.getFullYear(); month = d.getMonth() + 1; day = d.getDate() + 1; document.getElementById('month').value = month; document.getElementById('year').value = year } });
+</script>

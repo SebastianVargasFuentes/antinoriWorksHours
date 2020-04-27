@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    {{#if user}}
+    <a class="navbar-brand" href="/main">Antinori</a>
+    {{else}}
+    <a class="navbar-brand" href="/">Antinori</a>
+    {{/if}}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  {{#if user}}
+  <label for="check_id" class="icon-user oculto">
+      <i class="fa fa-user"></i>
+  </label>
+  {{/if}}
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      {{#if user}}
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sectores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/sectors">Todos los sectores</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/sectors/add">Añade un sector</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Trabajadores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/workers">Todos los trabajadores</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/workers/add">Añade un trabajador</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Secciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/sections">Todas las secciones</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/sections/add">Añade una seccion</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Trabajador Sector
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/sector_worker">Todos los Trabajadores-Sectores</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/sector_worker/add">Añade un Trabajador-Sector</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Más
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/filters">Todos los filtros</a>
+          <a class="dropdown-item" href="/charts">Todos los graficos</a>
+        </div>
+      </li>
+
+      <li class="nav-item agroupate">
+        <label for="check_id" class="icon-user">
+          <i class="fa fa-user"></i>
+        </label>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a href="/signIn" class="nav-link">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="/signUp" class="nav-link">Registrate</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+  </div>
+</nav>
+{{#if user}}
+<input type="checkbox" name="" id="check_id">
+<div class="card-user text-center">
+  <h3 class="mx-auto mt-3">Bienvenido  {{user.fullname}}</h3>
+  <h4 class="mx-auto mt-3 p-2">Usuario  {{user.username}}</h4>
+  <a href="/logout" class="btn btn-outline-secondary">Logout</a>
+</div>
+{{/if}}

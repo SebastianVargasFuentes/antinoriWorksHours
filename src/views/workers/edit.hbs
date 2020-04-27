@@ -1,0 +1,51 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+    <div class="container p-4">
+        <div class="row">
+
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/workers/edit/{{worker.worker_rut}}" method="POST">
+                            <div class="form-group">
+                                <input type="text" value="{{worker.worker_rut}}" class="form-control" name="worker_rut"
+                                    placeholder="Worker Rut" autofocus required readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="{{worker.worker_name}}" class="form-control"
+                                    name="worker_name" placeholder="Nombre Trabajador" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="{{worker.worker_surname}}" class="form-control"
+                                    name="worker_surname" placeholder="Apellido Trabajador" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="{{worker.worker_address}}" class="form-control"
+                                    name="worker_address" placeholder="Direccion Trabajador" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" value="{{worker.worker_contract_date}}" class="form-control"
+                                    name="worker_contract_date" placeholder="Fecha Contrato" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" value="{{worker.worker_hours_day}}" class="form-control"
+                                    name="worker_hours_day" placeholder="Horas por dia" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" value="{{worker.worker_hours_month}}" class="form-control"
+                                    name="worker_hours_month" placeholder="Horas por mes" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" value="{{worker.worker_hours_week}}" class="form-control"
+                                    name="worker_hours_week" placeholder="Horas por semana" required>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-outline-success btn-block">Editar trabajador</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+<div class="container p-4">
+    <div class="row">
+        <!--
+        <div class="col-md-12 p-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-sections">
+                        <p>Rut Trabajador</p>
+                        <p>Nombre</p>
+                        <p>Apellido</p> 
+                        <p>Sector</p> 
+                        <p>Fecha Trabajo</p> 
+                        <p>Hrs. Trab.</p> 
+                        <p>Seccion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#each relationed_workers}}
+        <div class="col-md-12 p-1">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-sections">
+                        <p>{{rut_trabajador}}</p>
+                        <p>{{nombre}}</p>
+                        <p>{{apellido}}</p> 
+                        <p>{{sector_trabajo}}</p> 
+                        <p>{{fecha_trabajada}}</p> 
+                        <p>{{horas_trabajadas}}</p> 
+                        <p>{{seccion}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>Nothing Here!</p>
+                <p>Probably there isn´t workeds here or the worker doesn't exists</p>
+            </div>
+        </div>
+        {{/each}}
+        -->
+
+        <div class="col-md-12 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="table-responsive table-hover">
+                            <table class="table ">
+                                <thead class="thead-light">
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Sector</th>
+                                    <th scope="col">Fecha Trabajo</th>
+                                    <th scope="col">Horas Trab.</th>
+                                    <th scope="col">Seccion</th>
+                                </thead>
+                                <tbody>
+                                    {{#each relationed_workers}}
+                                    <tr>
+                                        <td>{{rut_trabajador}}</td>
+                                        <td>{{nombre}}</td>
+                                        <td>{{apellido}}</td>
+                                        <td>{{sector_trabajo}}</td>
+                                        <td>{{fecha_trabajada}}</td>
+                                        <td>{{horas_trabajadas}}</td>
+                                        <td>{{seccion}}</td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td colspan="7">
+                                            No hay trabajadores filtrados aqui aun :(
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {{#each totalesHoras}}
+        <div class="col-md-4 p-1 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-sections">
+                        <p>Total Horas: {{suma_total_horas}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+            {{!-- Nothing here --}}
+        {{/each}}
+    </div>
+</div>
+</div>

@@ -1,0 +1,54 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+<div class="container p-4">
+    <div class="row">
+        {{#each workeds}}
+        <div class="col-md-4 p-1">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title text-uppercase">
+                        {{rut_trabajador}}
+                        <h5>{{nombre}} {{apellido}}</h5>
+                    </h2>
+                    <h3 class="text-uppercase m-2">
+                        {{sector_trabajador}}
+                    </h3>
+                    <h3 class="text-uppercase m-2">
+                        {{fecha_trabajada}}
+                    </h3>
+                    <p class="m-3">
+                        <p>Horas Trabajadas: {{horas_trabajadas}} h.</p>
+                    </p>
+                    <a href="/sector_worker/delete/{{id}}" class="btn btn-outline-danger">Eliminar</a>
+                    <a href="/sector_worker/edit/{{id}}" class="btn btn-outline-secondary">Editar</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>Aun no hay trabajadores creados</p>
+                <a href="/sector_worker/add">Crea un Trabajador</a>
+            </div>
+        </div>
+        {{/each}}
+
+        {{#each totalesHoras}}
+        <div class="container col-md-12">
+            <div class=" col-md-4 center mx-auto p-2">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title text-uppercase">
+                            Horas Totales: {{suma_horas}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+
+        {{/each}}
+
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+<div class="container p-4">
+    <div class="row">
+        {{#each sections}}
+            <div class="col-md-3 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h2 class="card-title text-uppercase">
+                            <a href="/sections/{{descripcion}}">{{descripcion}}</a>
+                        </h2>
+                        <p class="m-3">
+                            {{timeago created_at}}
+                        </p>
+                        <a href="/sections/delete/{{id}}" class="btn btn-outline-danger">Eliminar</a>
+                        <a href="/sections/edit/{{id}}" class="btn btn-outline-secondary">Editar</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>Aun no hay secciones creadas</p>
+                    <a href="/sections/add">Crea una seccion</a>
+                </div>
+            </div>
+        {{/each}}   
+    </div>
+</div>
+</div>

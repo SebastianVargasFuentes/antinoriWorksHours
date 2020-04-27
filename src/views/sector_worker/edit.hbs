@@ -1,0 +1,53 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/sector_worker/edit/{{workered.id}}" method="POST">
+                        <div class="form-group">
+                            rut trabajador
+                            <select name="rut_trabajador" autofocus required>
+                                {{#each worker}}
+                                <option value="{{worker_rut}}">{{worker_rut}} ({{worker_name}} {{worker_surname}})</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            sector trabajo
+                            <select name="sector_trabajo" required>
+                                {{#each sector}}
+                                <option>{{sector_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            fecha trabajada
+                            <input type="date" name="fecha_trabajada" id="date_worked" value="{{workered.fecha_trabajada}}" required>
+                            <input type="hidden" name="dia" id="day"><input type="hidden" name="mes" id="month"><input type="hidden" name="ano" id="year">
+                        </div>
+                        <div class="form-group">
+                            hora trabajada
+                            <input type="number" class="form-control" name="horas_trabajadas" placeholder="Hours Worked" value="{{workered.horas_trabajadas}}" required>
+                        </div>
+                        <div class="form-group">
+                            seccion
+                            <select name="seccion" required>
+                                {{#each section}}
+                                <option>{{descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button id="button_post" class="btn btn-outline-success btn-block">Editar trabajador</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let button_post=document.getElementById('button_post');button_post.addEventListener('click',()=>{var input=document.querySelector('#date_worked').value;var d=new Date(input);if(!!d.valueOf()){year=d.getFullYear();month=d.getMonth()+1;day=d.getDate()+1;document.getElementById('day').value=day;document.getElementById('month').value=month;document.getElementById('year').value=year}});
+</script>
+

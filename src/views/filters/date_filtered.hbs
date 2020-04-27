@@ -1,0 +1,69 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 p-1 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-date">
+                        <p>Mes: {{month_name}}</p>
+                        <p>Año: {{year_get}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="table-responsive table-hover">
+                            <table class="table ">
+                                <thead class="thead-light">
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Sector</th>
+                                    <th scope="col">Fecha Trabajo</th>
+                                    <th scope="col">Horas Trab.</th>
+                                    <th scope="col">Seccion</th>
+                                </thead>
+                                <tbody>
+                                    {{#each relationed_date}}
+                                    <tr>
+                                        <td>{{rut_trabajador}}</td>
+                                        <td>{{nombre}}</td>
+                                        <td>{{apellido}}</td>
+                                        <td>{{sector_trabajo}}</td>
+                                        <td>{{fecha_trabajada}}</td>
+                                        <td>{{horas_trabajadas}}</td>
+                                        <td>{{seccion}}</td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td colspan="7">
+                                            No hay fechas filtradas aqui aun :(
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {{#each totalesHoras}}
+        <div class="col-md-4 p-1 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-sections">
+                        <p>Total Horas: {{suma_total_horas}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+            {{!-- Nothing here --}}
+        {{/each}}
+    </div>
+</div>
+</div>

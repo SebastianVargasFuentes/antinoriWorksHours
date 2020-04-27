@@ -1,0 +1,63 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+    <div class="container p-4">
+        <div class="row">
+
+            {{!-- cards with sectors --}}
+            {{#each sectors}}
+            <div class="col-md-3 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h2 class="card-title text-uppercase">
+                            {{sector_name}}
+                        </h2>
+                        <p class="m-3">
+                            {{timeago created_at}}
+                        </p>
+                        <a href="/sectors/delete/{{id}}" class="btn btn-outline-danger">Eliminar</a>
+                        <a href="/sectors/edit/{{id}}" class="btn btn-outline-secondary">Editar</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>Aun no hay sectores creados</p>
+                    <a href="/sectors/add">Crea un sector</a>
+                </div>
+            </div>
+            {{/each}}
+            {{!-- cards with sectors--}}
+
+            {{!-- table with the max hours --}}
+            <div class="col-md-3 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <caption>Tabla sectores con las mayores horas</caption>
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>Sector</th>
+                                    <th>Horas</th>
+                                </thead>
+                                <tbody>
+                                    {{#each sectored_hours}}
+                                    <tr>
+                                        <td>{{sector_trabajo}}</td>
+                                        <td>{{suma_horas}}</td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td>No hay sectores creados :(</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- table with the max hours --}}
+
+        </div>
+    </div>
+</div>

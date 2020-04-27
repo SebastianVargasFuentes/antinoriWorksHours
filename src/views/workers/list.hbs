@@ -1,0 +1,71 @@
+<div style="overflow-y: scroll; height:90vh; width: auto;">
+
+    <div class="container p-4 scroll desp">
+        <div class="row">
+
+            {{!-- cards with workers --}}
+            {{#each workers}}
+            <div class="col-md-3 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h2 class="card-title text-uppercase">
+                            {{worker_rut}}
+                        </h2>
+                        <h3 class="text-uppercase m-2">
+                            {{worker_name}} {{worker_surname}}
+                        </h3>
+                        <h3 class="text-uppercase m-2">
+                            {{worker_address}}
+                        </h3>
+                        <p class="m-3">
+                            {{timeago created_at}}
+                        </p>
+                        <a href="/workers/delete/{{worker_rut}}" class="btn btn-outline-danger">Eliminar</a>
+                        <a href="/workers/edit/{{worker_rut}}" class="btn btn-outline-secondary">Editar</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>Aun no hay trabajadores creados</p>
+                    <a href="/workers/add">Crea un Trabajador</a>
+                </div>
+            </div>
+            {{/each}}
+            {{!-- cards with workers --}}
+
+            {{!-- Table with hours in order desc --}}
+            <div class="col-md-3 p-1">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <caption>Tabla trabajador con mas horas</caption>
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>Trabajador</th>
+                                    <th>Horas</th>
+                                </thead>
+                                <tbody>
+                                    {{#each workered_hours}}
+                                    <tr>
+                                        <td>{{rut_trabajador}}</td>
+                                        <td>{{suma_horas}}</td>
+                                    </tr>
+                                    {{else}}
+                                    <tr>
+                                        <td>There inst works with workers :(</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- Table with hours in order desc --}}
+
+        </div>
+    </div>
+
+</div>
